@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FlowSheet Studio — Templates & Fichiers Numériques Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#FAFAF8;
+  --white:#FFFFFF;
+  --black:#0A0A0A;
+  --dark:#1A1A2E;
+  --text:#2D2D2D;
+  --muted:#777777;
+  --border:#E8E8E8;
+  --border2:#D0D0D0;
+
+  /* Catégorie couleurs */
+  --c1:#6C63FF; /* Sheets - Violet */
+  --c1l:#EEF0FF;
+  --c2:#FF6B6B; /* PowerPoint - Coral */
+  --c2l:#FFF0F0;
+  --c3:#FFB347; /* Cartes vœux - Orange */
+  --c3l:#FFF8EE;
+  --c4:#4ECDC4; /* Invitations - Teal */
+  --c4l:#EEFAF9;
+
+  --grad1:linear-gradient(135deg,#6C63FF,#A855F7);
+  --grad2:linear-gradient(135deg,#FF6B6B,#FF8E53);
+  --grad3:linear-gradient(135deg,#FFB347,#FFD700);
+  --grad4:linear-gradient(135deg,#4ECDC4,#44CF6C);
+  --grad-hero:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 48px;height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:var(--grad1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;font-weight:800}
+nav ul{display:flex;gap:8px;list-style:none;align-items:center}
+nav ul li{position:relative}
+nav ul a{text-decoration:none;color:var(--muted);font-size:.875rem;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s;display:flex;align-items:center;gap:4px}
+nav ul a:hover{color:var(--dark);background:var(--border)}
+.nav-dropdown{position:relative}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 8px);left:0;background:white;border:1px solid var(--border);border-radius:16px;padding:8px;min-width:220px;box-shadow:0 20px 60px rgba(0,0,0,.12);opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .2s;z-index:400}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateY(0)}
+.dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--text);font-size:.85rem;font-weight:500;transition:background .15s}
+.dd-item:hover{background:var(--border)}
+.dd-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.nav-cta{background:var(--grad1);color:white!important;padding:10px 22px!important;border-radius:10px!important;font-weight:700!important}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px);background:var(--grad1)!important}
+
+/* CART ICON */
+.cart-btn{position:relative;background:var(--border);border:none;width:38px;height:38px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background .2s}
+.cart-btn:hover{background:var(--border2)}
+.cart-count{position:absolute;top:-4px;right:-4px;background:var(--c1);color:white;font-size:.6rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+/* PROMO BANNER */
+.promo-bar{background:var(--grad-hero);color:white;text-align:center;padding:10px 24px;font-size:.82rem;font-weight:600;letter-spacing:.3px;position:relative;z-index:200;margin-top:70px}
+.promo-bar span{background:rgba(255,255,255,.2);border-radius:4px;padding:2px 8px;margin:0 4px}
+
+/* HERO */
+.hero{padding:80px 48px 60px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1200px;margin:0 auto;position:relative}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(108,99,255,.08) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--c1l);color:var(--c1);border-radius:100px;padding:6px 16px;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-1.5px;color:var(--dark);margin-bottom:20px}
+.h1-color{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:460px;line-height:1.8;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--grad1);color:white;padding:14px 28px;border-radius:12px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s;box-shadow:0 8px 24px rgba(108,99,255,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(108,99,255,.4)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--dark);padding:14px 24px;border-radius:12px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--border2);transition:all .2s}
+.btn-ghost:hover{border-color:var(--c1);color:var(--c1)}
+.hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted);font-weight:500}
+.trust-icon{font-size:1rem}
+
+/* HERO VISUAL */
+.hero-visual{position:relative}
+.hero-mockup{background:white;border-radius:20px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.12);border:1px solid var(--border)}
+.mockup-header{display:flex;align-items:center;gap:8px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.mockup-dots{display:flex;gap:5px}
+.mdot{width:10px;height:10px;border-radius:50%}
+.mockup-title{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--muted);margin-left:8px}
+.mockup-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mock-card{border-radius:12px;padding:14px;position:relative;overflow:hidden}
+.mock-card h4{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+.mock-card p{font-size:.68rem;color:var(--muted)}
+.mock-badge{font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:4px;position:absolute;top:10px;right:10px}
+.mock-bars{display:flex;align-items:flex-end;gap:2px;height:28px;margin-top:8px}
+.mb{border-radius:2px 2px 0 0;width:8px}
+
+/* FLOATING BADGES */
+.float-badge{position:absolute;background:white;border-radius:12px;padding:10px 14px;box-shadow:0 8px 32px rgba(0,0,0,.12);display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;white-space:nowrap;animation:float 3s ease-in-out infinite}
+.fb1{top:-20px;right:-20px;animation-delay:0s}
+.fb2{bottom:20px;left:-30px;animation-delay:1.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* STATS ROW */
+.stats-row{background:white;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:28px 24px;text-align:center;position:relative}
+.stat-item:not(:last-child){border-right:1px solid var(--border)}
+.stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--dark)}
+.stat-label{font-size:.75rem;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
+
+/* SECTION */
+.section{padding:80px 48px;max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:56px}
+.section-label{display:inline-flex;align-items:center;gap:8px;background:var(--c1l);color:var(--c1);border-radius:100px;padding:6px 16px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;color:var(--dark);line-height:1.15}
+.section-sub{font-size:.95rem;color:var(--muted);margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* CATEGORY TABS */
+.cat-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.cat-tab{display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:100px;border:2px solid var(--border);background:white;color:var(--muted);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s}
+.cat-tab.active,.cat-tab:hover{border-color:var(--c1);color:var(--c1);background:var(--c1l)}
+.cat-tab[data-cat="ppt"].active,.cat-tab[data-cat="ppt"]:hover{border-color:var(--c2);color:var(--c2);background:var(--c2l)}
+.cat-tab[data-cat="cartes"].active,.cat-tab[data-cat="cartes"]:hover{border-color:var(--c3);color:var(--c3);background:var(--c3l)}
+.cat-tab[data-cat="invit"].active,.cat-tab[data-cat="invit"]:hover{border-color:var(--c4);color:var(--c4);background:var(--c4l)}
+
+/* PRODUCT GRID */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod-card{background:white;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;cursor:pointer}
+.prod-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.1);border-color:transparent}
+.prod-thumb{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.prod-thumb-inner{font-size:3rem;z-index:1}
+.prod-info{padding:16px}
+.prod-cat-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+.prod-cat-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.prod-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--dark);margin:6px 0 4px;line-height:1.3}
+.prod-desc{font-size:.75rem;color:var(--muted);margin-bottom:12px;line-height:1.6}
+.prod-footer{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--dark)}
+.prod-old{font-size:.72rem;color:var(--muted);text-decoration:line-through;margin-left:4px}
+.prod-btn{background:var(--dark);color:white;border:none;padding:8px 14px;border-radius:8px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s}
+.prod-btn:hover{opacity:.8}
+.prod-badge{position:absolute;top:10px;left:10px;font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:5px;z-index:2;text-transform:uppercase;letter-spacing:.5px}
+
+/* HOW IT WORKS */
+.how-bg{background:var(--dark);padding:80px 48px}
+.how-inner{max-width:1200px;margin:0 auto}
+.how-inner h2{color:white;text-align:center;margin-bottom:16px}
+.how-sub{color:rgba(255,255,255,.5);text-align:center;font-size:.95rem;margin-bottom:56px}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.how-step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px;position:relative;transition:background .2s}
+.how-step:hover{background:rgba(255,255,255,.08)}
+.step-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(255,255,255,.06);position:absolute;top:16px;right:20px;line-height:1}
+.step-icon{font-size:1.8rem;margin-bottom:16px}
+.step-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:white;margin-bottom:8px}
+.step-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.75}
+.step-tag{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.1);padding:4px 10px;border-radius:6px}
+
+/* COMMENT AJOUTER PRODUITS */
+.seller-guide{background:linear-gradient(135deg,#667eea10,#764ba210);border:2px solid #6C63FF33;border-radius:24px;padding:40px;margin-top:60px}
+.sg-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.sg-sub{font-size:.9rem;color:var(--muted);margin-bottom:32px}
+.sg-steps{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sg-step{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start}
+.sg-num{width:32px;height:32px;background:var(--grad1);color:white;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;flex-shrink:0}
+.sg-step-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+.sg-step-desc{font-size:.78rem;color:var(--muted);line-height:1.65}
+.sg-step-tag{display:inline-block;margin-top:8px;background:var(--c1l);color:var(--c1);font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:5px}
+.sg-delivery{background:white;border:2px solid var(--c4);border-radius:16px;padding:24px;margin-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.sd-item{text-align:center}
+.sd-icon{font-size:1.8rem;margin-bottom:8px}
+.sd-title{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+.sd-desc{font-size:.75rem;color:var(--muted);line-height:1.6}
+
+/* AVIS */
+.avis-bg{background:white;padding:80px 48px;border-top:1px solid var(--border)}
+.avis-inner{max-width:1200px;margin:0 auto}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.avis-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .2s}
+.avis-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.stars{color:#FFB347;font-size:.9rem;letter-spacing:2px;margin-bottom:12px}
+.avis-text{font-size:.875rem;color:var(--text);line-height:1.75;margin-bottom:16px;font-style:italic}
+.avis-author{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--border)}
+.avis-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:white;flex-shrink:0}
+.avis-name{font-size:.85rem;font-weight:700;color:var(--dark)}
+.avis-meta{font-size:.72rem;color:var(--muted)}
+.avis-prod{font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:4px;margin-top:2px;display:inline-block}
+
+/* FAQ */
+.faq-bg{background:var(--bg);padding:80px 48px;border-top:1px solid var(--border)}
+.faq-inner{max-width:780px;margin:0 auto}
+.faq-list{margin-top:0;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:white}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:none;border:none;padding:20px 24px;text-align:left;color:var(--dark);font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .15s}
+.faq-q:hover{background:var(--border)}
+.faq-icon{width:26px;height:26px;background:var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;transition:all .25s;flex-shrink:0}
+.faq-item.open .faq-icon{background:var(--c1);color:white;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.875rem;color:var(--muted);line-height:1.8;padding:0 24px}
+.faq-item.open .faq-a{max-height:250px;padding:0 24px 20px}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.7);padding:64px 48px 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo{color:white}
+.footer-brand p{font-size:.82rem;color:rgba(255,255,255,.4);margin-top:12px;max-width:240px;line-height:1.8}
+.footer-social{display:flex;gap:10px;margin-top:16px}
+.fsoc{width:34px;height:34px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:background .2s;cursor:pointer}
+.fsoc:hover{background:rgba(255,255,255,.15)}
+.footer-col h4{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.footer-col a{display:block;text-decoration:none;color:rgba(255,255,255,.5);font-size:.82rem;margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:white}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.25)}
+.footer-pay{display:flex;gap:8px}
+.fp{background:rgba(255,255,255,.08);border-radius:5px;padding:4px 10px;font-size:.68rem;font-weight:600;color:rgba(255,255,255,.4)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(8px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:white;border-radius:24px;padding:36px;width:100%;max-width:480px;position:relative;transform:translateY(16px);transition:transform .25s;box-shadow:0 40px 100px rgba(0,0,0,.2)}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:14px;right:14px;background:var(--border);border:none;color:var(--muted);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{background:var(--border2);color:var(--dark)}
+.modal-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--dark);margin-bottom:4px}
+.modal-sub{font-size:.8rem;color:var(--muted);margin-bottom:22px}
+.modal-product{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.modal-product-name{font-weight:700;color:var(--dark);font-size:.9rem}
+.modal-product-price{font-family:'Syne',sans-serif;font-weight:800;color:var(--dark);font-size:1.2rem}
+.modal-methods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.pay-method{background:white;border:2px solid var(--border);border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;transition:all .15s;font-size:.82rem;font-weight:600;color:var(--muted)}
+.pay-method:hover,.pay-method.selected{border-color:var(--c1);color:var(--c1);background:var(--c1l)}
+.modal-form{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-label{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.form-input{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--dark);font-size:.875rem;outline:none;transition:border-color .2s;font-family:'Inter',sans-serif;width:100%}
+.form-input:focus{border-color:var(--c1)}
+.form-input::placeholder{color:var(--border2)}
+.modal-total{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:16px}
+.modal-total-label{font-size:.9rem;color:var(--muted)}
+.modal-total-price{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--dark)}
+.btn-pay{width:100%;background:var(--grad1);color:white;border:none;padding:15px;border-radius:12px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 24px rgba(108,99,255,.3)}
+.btn-pay:hover{transform:translateY(-1px);box-shadow:0 16px 40px rgba(108,99,255,.4)}
+.modal-security{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:.7rem;color:var(--muted)}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;right:28px;z-index:2000;background:white;border:1px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 20px 60px rgba(0,0,0,.15);transform:translateY(80px);opacity:0;transition:all .35s;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast-icon{font-size:1.2rem}
+.toast-title{font-size:.85rem;font-weight:700;color:var(--dark)}
+.toast-sub{font-size:.72rem;color:var(--muted)}
+
+/* LIVE BANNER */
+.live-bar{background:var(--dark);color:rgba(255,255,255,.7);text-align:center;padding:8px 24px;font-size:.78rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.live-dot{width:6px;height:6px;background:#4ECDC4;border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE */
+@media(max-width:960px){
+  nav{padding:0 20px}
+  nav ul{display:none}
+  .hero{grid-template-columns:1fr;padding:40px 20px 40px}
+  .hero-visual{display:none}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .section{padding:60px 20px}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .how-steps{grid-template-columns:1fr}
+  .avis-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .sg-steps{grid-template-columns:1fr}
+  .sg-delivery{grid-template-columns:1fr}
+  .how-bg{padding:60px 20px}
+  .avis-bg{padding:60px 20px}
+  .faq-bg{padding:60px 20px}
+  footer{padding:48px 20px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">FS</div>
+    FlowSheet Studio
+  </a>
+  <ul>
+    <li class="nav-dropdown">
+      <a href="#">Fichiers ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="#produits" class="dd-item" onclick="filterCat('sheets')"><span class="dd-dot" style="background:var(--c1)"></span>Google Sheets & Excel</a>
+        <a href="#produits" class="dd-item" onclick="filterCat('ppt')"><span class="dd-dot" style="background:var(--c2)"></span>PowerPoints</a>
+        <a href="#produits" class="dd-item" onclick="filterCat('cartes')"><span class="dd-dot" style="background:var(--c3)"></span>Cartes de vœux</a>
+        <a href="#produits" class="dd-item" onclick="filterCat('invit')"><span class="dd-dot" style="background:var(--c4)"></span>Invitations</a>
+      </div>
+    </li>
+    <li><a href="#comment">Comment ça marche</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#produits" class="nav-cta">Acheter →</a></li>
+  </ul>
+  <button class="cart-btn" onclick="showToast('🛒','Panier','Connecte Gumroad ou Stripe pour activer le panier !')">
+    🛒 <span class="cart-count">0</span>
+  </button>
+</nav>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">
+  🎁 <span>-10% dès 2 articles achetés</span> · Livraison instantanée par email · Paiement sécurisé Stripe 🔒
+</div>
+
+<!-- LIVE BAR -->
+<div class="live-bar">
+  <span class="live-dot"></span>
+  <span id="liveBanner">3 personnes consultent ce site en ce moment</span>
+</div>
+
+<!-- HERO -->
+<div style="max-width:1200px;margin:0 auto">
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">⚡ Fichiers numériques premium</div>
+    <h1>Organisez,<br/>créez &<br/><span class="h1-color">démarquez-vous</span></h1>
+    <p class="hero-sub">Templates Google Sheets, PowerPoints, cartes de vœux et invitations premium. Téléchargement instantané, personnalisables à 100%.</p>
+    <div class="hero-actions">
+      <a href="#produits" class="btn-primary">🚀 Voir tous les produits</a>
+      <a href="#comment" class="btn-ghost">Comment ça marche</a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-item"><span class="trust-icon">⭐</span>+1 200 clients satisfaits</span>
+      <span class="trust-item"><span class="trust-icon">⚡</span>Livraison &lt; 30s</span>
+      <span class="trust-item"><span class="trust-icon">🔒</span>Paiement Stripe</span>
+      <span class="trust-item"><span class="trust-icon">🎨</span>100% personnalisable</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="float-badge fb1">🔥 Best-seller — Budget Tracker Pro</div>
+    <div class="hero-mockup">
+      <div class="mockup-header">
+        <div class="mockup-dots"><div class="mdot" style="background:#FF6B6B"></div><div class="mdot" style="background:#FFB347"></div><div class="mdot" style="background:#4ECDC4"></div></div>
+        <div class="mockup-title">FlowSheet Studio — Catalogue</div>
+      </div>
+      <div class="mockup-grid">
+        <div class="mock-card" style="background:#EEF0FF">
+          <div class="mock-badge" style="background:#6C63FF;color:white">Sheets</div>
+          <h4>Budget Tracker</h4><p>Dashboard financier</p>
+          <div class="mock-bars"><div class="mb" style="background:#6C63FF;height:60%"></div><div class="mb" style="background:#6C63FF;height:80%"></div><div class="mb" style="background:#A855F7;height:50%"></div><div class="mb" style="background:#6C63FF;height:90%"></div><div class="mb" style="background:#6C63FF;height:70%"></div></div>
+        </div>
+        <div class="mock-card" style="background:#FFF0F0">
+          <div class="mock-badge" style="background:#FF6B6B;color:white">PPT</div>
+          <h4>Pitch Deck Pro</h4><p>Présentation business</p>
+          <div class="mock-bars"><div class="mb" style="background:#FF6B6B;height:40%"></div><div class="mb" style="background:#FF8E53;height:65%"></div><div class="mb" style="background:#FF6B6B;height:55%"></div><div class="mb" style="background:#FF8E53;height:80%"></div><div class="mb" style="background:#FF6B6B;height:60%"></div></div>
+        </div>
+        <div class="mock-card" style="background:#FFF8EE">
+          <div class="mock-badge" style="background:#FFB347;color:white">Carte</div>
+          <h4>Carte Noël</h4><p>Design moderne</p>
+          <div style="font-size:1.5rem;text-align:center;margin-top:6px">🎄✨</div>
+        </div>
+        <div class="mock-card" style="background:#EEFAF9">
+          <div class="mock-badge" style="background:#4ECDC4;color:white">Invit.</div>
+          <h4>Mariage élégant</h4><p>Invitation personnalisée</p>
+          <div style="font-size:1.5rem;text-align:center;margin-top:6px">💍🌸</div>
+        </div>
+      </div>
+    </div>
+    <div class="float-badge fb2">✅ Sarah vient d'acheter • il y a 2 min</div>
+  </div>
+</div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-item reveal"><div class="stat-num" data-target="1247" data-suffix="+">1247+</div><div class="stat-label">Clients satisfaits</div></div>
+  <div class="stat-item reveal"><div class="stat-num">4.9★</div><div class="stat-label">Note moyenne</div></div>
+  <div class="stat-item reveal"><div class="stat-num" data-target="4" data-suffix=" catégories">4 catégories</div><div class="stat-label">De produits</div></div>
+  <div class="stat-item reveal"><div class="stat-num">&lt;30s</div><div class="stat-label">Livraison email</div></div>
+</div>
+
+<!-- PRODUITS -->
+<section id="produits">
+<div class="section">
+  <div class="section-header reveal">
+    <div class="section-label">🎨 Nos Produits</div>
+    <h2>Tout ce dont tu as besoin<br/>en un seul endroit</h2>
+    <p class="section-sub">Sheets, PowerPoints, cartes et invitations — tous personnalisables, tous livrés instantanément.</p>
+  </div>
+
+  <div class="cat-tabs">
+    <button class="cat-tab active" data-cat="all" onclick="filterCat('all')">🗂️ Tout voir</button>
+    <button class="cat-tab" data-cat="sheets" onclick="filterCat('sheets')">📊 Google Sheets</button>
+    <button class="cat-tab" data-cat="ppt" onclick="filterCat('ppt')">📑 PowerPoint</button>
+    <button class="cat-tab" data-cat="cartes" onclick="filterCat('cartes')">🎄 Cartes de vœux</button>
+    <button class="cat-tab" data-cat="invit" onclick="filterCat('invit')">💌 Invitations</button>
+  </div>
+
+  <div class="prod-grid" id="prodGrid">
+
+    <!-- SHEETS -->
+    <div class="prod-card" data-cat="sheets">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#EEF0FF,#DDD9FF)">
+        <div class="prod-badge" style="background:#6C63FF;color:white">⭐ Best-seller</div>
+        <span class="prod-thumb-inner">💰</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#6C63FF"></span><span class="prod-cat-label" style="color:#6C63FF">Google Sheets</span></div>
+        <div class="prod-title">Budget Tracker Pro</div>
+        <p class="prod-desc">Dashboard financier 100% automatique. Score mensuel, suivi sur 12 mois.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">12€</span></div>
+          <button class="prod-btn" style="background:var(--c1)" onclick="openModal('Budget Tracker Pro','12')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="sheets">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#EEF0FF,#DDD9FF)">
+        <div class="prod-badge" style="background:#10b981;color:white">🔥 Nouveau</div>
+        <span class="prod-thumb-inner">📈</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#6C63FF"></span><span class="prod-cat-label" style="color:#6C63FF">Google Sheets</span></div>
+        <div class="prod-title">Side Hustle Tracker</div>
+        <p class="prod-desc">Suivi multi-revenus, jauge liberté financière, plan 90 jours.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">15€</span></div>
+          <button class="prod-btn" style="background:var(--c1)" onclick="openModal('Side Hustle Tracker','15')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="sheets">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#EEF0FF,#DDD9FF)">
+        <span class="prod-thumb-inner">🧾</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#6C63FF"></span><span class="prod-cat-label" style="color:#6C63FF">Google Sheets</span></div>
+        <div class="prod-title">Pack Freelance Complet</div>
+        <p class="prod-desc">Factures auto, contrats, CRM clients — tout en un fichier.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">25€</span><span class="prod-old">35€</span></div>
+          <button class="prod-btn" style="background:var(--c1)" onclick="openModal('Pack Freelance Complet','25')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="sheets">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#EEF0FF,#DDD9FF)">
+        <span class="prod-thumb-inner">📊</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#6C63FF"></span><span class="prod-cat-label" style="color:#6C63FF">Google Sheets</span></div>
+        <div class="prod-title">Dashboard Entrepreneur</div>
+        <p class="prod-desc">KPIs, CA, marges, croissance — tout calculé automatiquement.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">19€</span></div>
+          <button class="prod-btn" style="background:var(--c1)" onclick="openModal('Dashboard Entrepreneur','19')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- POWERPOINT -->
+    <div class="prod-card" data-cat="ppt">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#FFF0F0,#FFE0E0)">
+        <div class="prod-badge" style="background:#FF6B6B;color:white">🔥 Populaire</div>
+        <span class="prod-thumb-inner">🎯</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#FF6B6B"></span><span class="prod-cat-label" style="color:#FF6B6B">PowerPoint</span></div>
+        <div class="prod-title">Pitch Deck Business Pro</div>
+        <p class="prod-desc">20 slides professionnels pour convaincre investisseurs et clients.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">18€</span></div>
+          <button class="prod-btn" style="background:var(--c2)" onclick="openModal('Pitch Deck Business Pro','18')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="ppt">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#FFF0F0,#FFE0E0)">
+        <span class="prod-thumb-inner">📚</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#FF6B6B"></span><span class="prod-cat-label" style="color:#FF6B6B">PowerPoint</span></div>
+        <div class="prod-title">Template Formation / Cours</div>
+        <p class="prod-desc">Design épuré pour créateurs de contenu et formateurs en ligne.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">14€</span></div>
+          <button class="prod-btn" style="background:var(--c2)" onclick="openModal('Template Formation','14')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="ppt">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#FFF0F0,#FFE0E0)">
+        <span class="prod-thumb-inner">📱</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#FF6B6B"></span><span class="prod-cat-label" style="color:#FF6B6B">PowerPoint</span></div>
+        <div class="prod-title">Media Kit Creator</div>
+        <p class="prod-desc">Présente ton profil créateur à des marques — pro et impactant.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">12€</span></div>
+          <button class="prod-btn" style="background:var(--c2)" onclick="openModal('Media Kit Creator','12')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARTES -->
+    <div class="prod-card" data-cat="cartes">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#FFF8EE,#FFEEDD)">
+        <div class="prod-badge" style="background:#FFB347;color:white">🎄 Saisonnier</div>
+        <span class="prod-thumb-inner">🎄</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#FFB347"></span><span class="prod-cat-label" style="color:#FFB347">Carte de vœux</span></div>
+        <div class="prod-title">Pack Noël Élégant</div>
+        <p class="prod-desc">5 designs de cartes de Noël modernes et personnalisables.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">8€</span></div>
+          <button class="prod-btn" style="background:var(--c3)" onclick="openModal('Pack Noël Élégant','8')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="cartes">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#FFF8EE,#FFEEDD)">
+        <span class="prod-thumb-inner">🎂</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#FFB347"></span><span class="prod-cat-label" style="color:#FFB347">Carte de vœux</span></div>
+        <div class="prod-title">Carte Anniversaire Premium</div>
+        <p class="prod-desc">3 designs élégants pour des anniversaires inoubliables.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">6€</span></div>
+          <button class="prod-btn" style="background:var(--c3)" onclick="openModal('Carte Anniversaire Premium','6')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="cartes">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#FFF8EE,#FFEEDD)">
+        <span class="prod-thumb-inner">✨</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#FFB347"></span><span class="prod-cat-label" style="color:#FFB347">Carte de vœux</span></div>
+        <div class="prod-title">Pack Nouvel An Luxe</div>
+        <p class="prod-desc">4 cartes de vœux dorées et modernes pour bien commencer l'année.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">7€</span></div>
+          <button class="prod-btn" style="background:var(--c3)" onclick="openModal('Pack Nouvel An Luxe','7')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVITATIONS -->
+    <div class="prod-card" data-cat="invit">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#EEFAF9,#DDFAF7)">
+        <div class="prod-badge" style="background:#4ECDC4;color:white">💍 Nouveau</div>
+        <span class="prod-thumb-inner">💍</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#4ECDC4"></span><span class="prod-cat-label" style="color:#4ECDC4">Invitation</span></div>
+        <div class="prod-title">Invitation Mariage Bohème</div>
+        <p class="prod-desc">Design floral et romantique, 3 formats inclus (A5, carré, digital).</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">10€</span></div>
+          <button class="prod-btn" style="background:var(--c4)" onclick="openModal('Invitation Mariage Bohème','10')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="invit">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#EEFAF9,#DDFAF7)">
+        <span class="prod-thumb-inner">🎉</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#4ECDC4"></span><span class="prod-cat-label" style="color:#4ECDC4">Invitation</span></div>
+        <div class="prod-title">Invitation Anniversaire Enfant</div>
+        <p class="prod-desc">Coloré et amusant — 5 thèmes au choix, personnalisable en 5 min.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">8€</span></div>
+          <button class="prod-btn" style="background:var(--c4)" onclick="openModal('Invitation Anniversaire Enfant','8')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="invit">
+      <div class="prod-thumb" style="background:linear-gradient(135deg,#EEFAF9,#DDFAF7)">
+        <span class="prod-thumb-inner">🍾</span>
+      </div>
+      <div class="prod-info">
+        <div><span class="prod-cat-dot" style="background:#4ECDC4"></span><span class="prod-cat-label" style="color:#4ECDC4">Invitation</span></div>
+        <div class="prod-title">Invitation Soirée / Événement</div>
+        <p class="prod-desc">Style moderne et premium pour lancer ta soirée avec panache.</p>
+        <div class="prod-footer">
+          <div><span class="prod-price">7€</span></div>
+          <button class="prod-btn" style="background:var(--c4)" onclick="openModal('Invitation Soirée','7')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- HOW IT WORKS + GUIDE VENDEUR -->
+<div class="how-bg" id="comment">
+  <div class="how-inner">
+    <div class="section-label" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);margin-bottom:14px">⚡ Comment ça marche</div>
+    <h2 style="color:white;text-align:center;margin-bottom:12px">Simple comme bonjour</h2>
+    <p class="how-sub">3 étapes pour avoir ton fichier en moins d'une minute.</p>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-icon">🛒</div>
+        <div class="step-title">Tu choisis ton template</div>
+        <p class="step-desc">Parcours le catalogue, filtre par catégorie, clique sur "Acheter". C'est tout ce qu'il y a à faire de ton côté.</p>
+        <span class="step-tag">Catalogue complet disponible</span>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">02</div>
+        <div class="step-icon">🔒</div>
+        <div class="step-title">Tu paies en sécurité</div>
+        <p class="step-desc">Stripe traite ton paiement en quelques secondes. Carte bancaire, Apple Pay ou Google Pay — à toi de choisir.</p>
+        <span class="step-tag">Chiffrement SSL · Stripe</span>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">03</div>
+        <div class="step-icon">⚡</div>
+        <div class="step-title">Tu reçois ton fichier</div>
+        <p class="step-desc">Un email automatique t'envoie le lien de téléchargement immédiatement. Moins de 30 secondes après le paiement.</p>
+        <span class="step-tag">Livraison instantanée</span>
+      </div>
+    </div>
+
+    <!-- GUIDE VENDEUR -->
+    <div class="seller-guide">
+      <div class="sg-title">🛠️ Comment ajouter tes produits & gérer les livraisons</div>
+      <p class="sg-sub">Voici exactement comment fonctionne ton business numérique de A à Z — étape par étape.</p>
+      <div class="sg-steps">
+        <div class="sg-step">
+          <div class="sg-num">1</div>
+          <div>
+            <div class="sg-step-title">Crée ton fichier (Sheets, PPT, PDF...)</div>
+            <p class="sg-step-desc">Crée ton produit sur Google Sheets, PowerPoint, Canva ou tout autre outil. Exporte-le en PDF ou garde-le en .xlsx / .pptx. C'est ton fichier à vendre.</p>
+            <span class="sg-step-tag">Outils : Google Sheets · Canva · PowerPoint</span>
+          </div>
+        </div>
+        <div class="sg-step">
+          <div class="sg-num">2</div>
+          <div>
+            <div class="sg-step-title">Upload sur Gumroad ou LemonSqueezy</div>
+            <p class="sg-step-desc">Va sur gumroad.com → "New Product" → Upload ton fichier → Fixe ton prix → Copie le lien de paiement généré. C'est ça ton lien de vente.</p>
+            <span class="sg-step-tag">Plateforme recommandée : Gumroad (gratuit)</span>
+          </div>
+        </div>
+        <div class="sg-step">
+          <div class="sg-num">3</div>
+          <div>
+            <div class="sg-step-title">Remplace les boutons "Acheter" du site</div>
+            <p class="sg-step-desc">Dans le code HTML de ce site, chaque bouton appelle openModal(). Remplace les liens par tes vrais liens Gumroad. Ex : window.open('https://gumroad.com/l/tonproduit')</p>
+            <span class="sg-step-tag">Dans le code : fonction openModal() → lien Gumroad</span>
+          </div>
+        </div>
+        <div class="sg-step">
+          <div class="sg-num">4</div>
+          <div>
+            <div class="sg-step-title">Ajoute tes nouvelles cartes produit</div>
+            <p class="sg-step-desc">Dans le HTML, copie-colle un bloc &lt;div class="prod-card"&gt;, change le nom, l'emoji, la description et le prix. Mets data-cat="sheets", "ppt", "cartes" ou "invit".</p>
+            <span class="sg-step-tag">Copier-coller dans la section #prodGrid</span>
+          </div>
+        </div>
+      </div>
+      <div class="sg-delivery">
+        <div class="sd-item">
+          <div class="sd-icon">📦</div>
+          <div class="sd-title">Le client paie</div>
+          <p class="sd-desc">Via Gumroad ou Stripe — carte, Apple Pay, Google Pay</p>
+        </div>
+        <div class="sd-item">
+          <div class="sd-icon">🤖</div>
+          <div class="sd-title">Livraison automatique</div>
+          <p class="sd-desc">Gumroad envoie automatiquement le lien de téléchargement par email en moins de 30 secondes</p>
+        </div>
+        <div class="sd-item">
+          <div class="sd-icon">💰</div>
+          <div class="sd-title">Tu encaisses</div>
+          <p class="sd-desc">L'argent arrive sur ton compte Gumroad ou Stripe — virement disponible chaque semaine</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AVIS -->
+<div class="avis-bg" id="avis">
+  <div class="avis-inner">
+    <div class="section-header reveal">
+      <div class="section-label">⭐ Avis Clients</div>
+      <h2>Ils adorent leurs fichiers</h2>
+      <p class="section-sub">Des centaines de clients satisfaits font confiance à FlowSheet Studio.</p>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Le Budget Tracker Pro m'a changé la vie. Je sais enfin où part mon argent et j'ai économisé 380€ dès le premier mois !"</p>
+        <div class="avis-author"><div class="avis-av" style="background:var(--grad1)">S</div><div><div class="avis-name">Sarah M.</div><div class="avis-meta">il y a 2 jours</div><div class="avis-prod" style="background:var(--c1l);color:var(--c1)">Budget Tracker Pro</div></div></div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Le Pitch Deck Business m'a permis de convaincre mon premier investisseur. Design incroyable, très pro. Je recommande à 100% !"</p>
+        <div class="avis-author"><div class="avis-av" style="background:var(--grad2)">T</div><div><div class="avis-name">Thomas K.</div><div class="avis-meta">il y a 5 jours</div><div class="avis-prod" style="background:var(--c2l);color:var(--c2)">Pitch Deck Pro</div></div></div>
+      </div>
+      <div class="avis-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="avis-text">"Les cartes de mariage sont absolument magnifiques. Mes invités ont tous demandé où je les avais trouvées. Livraison instantanée, top !"</p>
+        <div class="avis-author"><div class="avis-av" style="background:var(--grad4)">A</div><div><div class="avis-name">Aminata D.</div><div class="avis-meta">il y a 1 semaine</div><div class="avis-prod" style="background:var(--c4l);color:var(--c4)">Invitation Mariage</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-bg" id="faq">
+  <div class="faq-inner">
+    <div class="section-header reveal">
+      <div class="section-label">❓ FAQ</div>
+      <h2>Questions fréquentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Comment je reçois mon fichier ?<span class="faq-icon">+</span></button><div class="faq-a">Dès le paiement validé, tu reçois un email avec le lien de téléchargement direct. Moins de 30 secondes. Pas de compte à créer, pas d'attente.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Faut-il un logiciel spécial ?<span class="faq-icon">+</span></button><div class="faq-a">Non ! Les Sheets fonctionnent sur Google Sheets (gratuit) et Excel. Les PowerPoints sur PowerPoint et Google Slides. Les cartes et invitations sont livrées en PDF prêts à imprimer ou partager.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Est-ce que je peux personnaliser les fichiers ?<span class="faq-icon">+</span></button><div class="faq-a">Absolument ! Tous les fichiers sont 100% modifiables. Couleurs, textes, logos, données — tu adaptes tout à ta situation en quelques clics.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Quels moyens de paiement acceptez-vous ?<span class="faq-icon">+</span></button><div class="faq-a">Via Stripe : carte bancaire (Visa, Mastercard, Amex), Apple Pay et Google Pay. Paiement chiffré SSL, tes données bancaires ne nous sont jamais transmises.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Puis-je utiliser les fichiers pour mes clients ?<span class="faq-icon">+</span></button><div class="faq-a">Les fichiers sont pour usage personnel uniquement. Pour une utilisation commerciale ou pour les revendre modifiés, contacte-nous pour une licence pro.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Et si j'ai un problème avec mon fichier ?<span class="faq-icon">+</span></button><div class="faq-a">On répond sous 24h. Contacte-nous par email et une vraie personne te guidera pas à pas jusqu'à ce que tout soit parfait.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><div class="logo-icon">FS</div>FlowSheet Studio</a>
+        <p>Fichiers numériques premium pour entrepreneurs, créateurs et particuliers. Qualité garantie, livraison instantanée.</p>
+        <div class="footer-social">
+          <div class="fsoc">📸</div>
+          <div class="fsoc">🎵</div>
+          <div class="fsoc">▶️</div>
+          <div class="fsoc">📌</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Produits</h4>
+        <a href="#produits" onclick="filterCat('sheets')">Google Sheets</a>
+        <a href="#produits" onclick="filterCat('ppt')">PowerPoints</a>
+        <a href="#produits" onclick="filterCat('cartes')">Cartes de vœux</a>
+        <a href="#produits" onclick="filterCat('invit')">Invitations</a>
+      </div>
+      <div class="footer-col">
+        <h4>Infos</h4>
+        <a href="#comment">Comment ça marche</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Remboursement</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 FlowSheet Studio. Tous droits réservés.</div>
+      <div class="footer-pay"><span class="fp">💳 Carte</span><span class="fp">🍎 Apple Pay</span><span class="fp">🔵 Google Pay</span><span class="fp">🔒 Stripe</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="payModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title">Finaliser l'achat 🛒</div>
+    <p class="modal-sub">Paiement sécurisé · Livraison instantanée par email ⚡</p>
+    <div class="modal-product">
+      <div><div class="modal-product-name" id="modalProductName">Budget Tracker Pro</div><div style="font-size:.7rem;color:#4ECDC4;margin-top:2px">⚡ Reçu dans ta boite email en moins de 30s</div></div>
+      <div class="modal-product-price" id="modalProductPrice">12€</div>
+    </div>
+    <div class="modal-methods">
+      <div class="pay-method selected" onclick="selectMethod(this)">💳 Carte bancaire</div>
+      <div class="pay-method" onclick="selectMethod(this)">🍎 Apple Pay</div>
+      <div class="pay-method" onclick="selectMethod(this)">🔵 Google Pay</div>
+      <div class="pay-method" onclick="selectMethod(this)">🏦 Virement</div>
+    </div>
+    <div class="modal-form">
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="ton@email.com"/></div>
+      <div class="form-group"><label class="form-label">Numéro de carte</label><input class="form-input" type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)"/></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Expiration</label><input class="form-input" type="text" placeholder="MM/AA" maxlength="5"/></div>
+        <div class="form-group"><label class="form-label">CVV</label><input class="form-input" type="text" placeholder="123" maxlength="3"/></div>
+      </div>
+    </div>
+    <div class="modal-total"><span class="modal-total-label">Total à payer</span><span class="modal-total-price" id="modalTotalPrice">12€</span></div>
+    <button class="btn-pay" onclick="simulatePay()">🔒 Payer maintenant — <span id="modalPayPrice">12€</span></button>
+    <div class="modal-security">🔒 Chiffrement SSL · Stripe · Aucune donnée stockée</div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="toast-icon" id="toastIcon">🛒</span><div><div class="toast-title" id="toastTitle">Titre</div><div class="toast-sub" id="toastSub">Sous-titre</div></div></div>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll',()=>{});
+
+// LIVE BANNER
+const msgs=['3 personnes consultent ce site en ce moment','Sarah vient d\'acheter le Budget Tracker Pro 💰','Thomas vient de télécharger son Pitch Deck 🎯','5 personnes consultent ce site en ce moment','Aminata vient d\'acheter l\'Invitation Mariage 💍'];
+let mi=0;setInterval(()=>{mi=(mi+1)%msgs.length;document.getElementById('liveBanner').textContent=msgs[mi]},4000);
+
+// FILTER
+function filterCat(cat){
+  document.querySelectorAll('.cat-tab').forEach(t=>{
+    t.classList.remove('active');
+    if(t.dataset.cat===cat||(cat==='all'&&t.dataset.cat==='all'))t.classList.add('active');
+  });
+  document.querySelectorAll('.prod-card').forEach(c=>{
+    if(cat==='all'||c.dataset.cat===cat){c.style.display='flex';c.style.flexDirection='column'}
+    else c.style.display='none';
+  });
+  document.getElementById('produits').scrollIntoView({behavior:'smooth'});
+}
+
+// COUNTER
+function animateCounter(el){
+  const target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'',dur=1400,start=performance.now();
+  function u(now){const p=Math.min((now-start)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(e*target)+suffix;if(p<1)requestAnimationFrame(u)}
+  requestAnimationFrame(u);
+}
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');e.target.querySelectorAll('[data-target]').forEach(c=>animateCounter(c))}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// FAQ
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item'),open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+// MODAL
+let curPrice='';
+function openModal(name,price){
+  curPrice=price;
+  document.getElementById('modalProductName').textContent=name;
+  document.getElementById('modalProductPrice').textContent=price+'€';
+  document.getElementById('modalTotalPrice').textContent=price+'€';
+  document.getElementById('modalPayPrice').textContent=price+'€';
+  document.getElementById('payModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('payModal').classList.remove('open');document.body.style.overflow=''}
+function closeModalOutside(e){if(e.target===document.getElementById('payModal'))closeModal()}
+function selectMethod(el){document.querySelectorAll('.pay-method').forEach(m=>m.classList.remove('selected'));el.classList.add('selected')}
+function formatCard(i){let v=i.value.replace(/\D/g,'').substring(0,16);i.value=v.replace(/(.{4})/g,'$1 ').trim()}
+function simulatePay(){
+  const b=document.querySelector('.btn-pay');b.innerHTML='⏳ Traitement...';b.disabled=true;
+  setTimeout(()=>{closeModal();b.innerHTML='🔒 Payer maintenant — '+curPrice+'€';b.disabled=false;showToast('✅','Paiement simulé !','En prod : Gumroad envoie le fichier automatiquement !')},2000);
+}
+
+// TOAST
+function showToast(icon,title,sub){
+  const t=document.getElementById('toast');
+  document.getElementById('toastIcon').textContent=icon;
+  document.getElementById('toastTitle').textContent=title;
+  document.getElementById('toastSub').textContent=sub;
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5000);
+}
+setTimeout(()=>showToast('🛒','Sarah vient d\'acheter','Budget Tracker Pro · il y a 1 min'),6000);
+setTimeout(()=>showToast('⭐','Nouvel avis 5 étoiles','Thomas K. · Pitch Deck Pro'),15000);
+</script>
+</body>
+</html>
