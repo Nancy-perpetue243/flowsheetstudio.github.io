@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FlowSheet Studio — Templates Business & Finance Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#000000;
+  --surface:#0A0A0A;
+  --card:#111111;
+  --card2:#181818;
+  --border:#222222;
+  --border2:#333333;
+  --accent:#FFFFFF;
+  --accent2:#E0E0E0;
+  --dim:#888888;
+  --dim2:#555555;
+  --text:#CCCCCC;
+  --white:#FFFFFF;
+  --black:#000000;
+  --gold:#F5C842;
+  --mint:#10F5A0;
+  --red:#FF4444;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* SCANLINE OVERLAY */
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px);pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 56px;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding .3s}
+nav.scrolled{padding:14px 56px}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--white);text-decoration:none;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px}
+.logo-mark{width:22px;height:22px;border:2px solid var(--white);border-radius:4px;display:flex;align-items:center;justify-content:center}
+.logo-mark-inner{width:8px;height:8px;background:var(--white);border-radius:2px}
+nav ul{display:flex;gap:36px;list-style:none}
+nav ul a{text-decoration:none;color:var(--dim);font-size:.85rem;font-weight:500;letter-spacing:.3px;transition:color .2s}
+nav ul a:hover{color:var(--white)}
+.nav-cta{background:var(--white)!important;color:var(--black)!important;padding:10px 24px;border-radius:6px;font-weight:700!important;transition:opacity .2s,transform .15s!important}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+
+/* LIVE BANNER */
+.live-banner{position:fixed;top:69px;left:50%;transform:translateX(-50%);z-index:190;background:rgba(10,10,10,.95);border:1px solid var(--border2);border-radius:100px;padding:6px 18px;display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;color:var(--text);white-space:nowrap;backdrop-filter:blur(12px)}
+.live-dot{width:6px;height:6px;background:var(--mint);border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;z-index:1;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;opacity:.4;pointer-events:none}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,var(--bg) 80%);pointer-events:none}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;animation:fadeUp .6s ease both}
+.eyebrow-line{width:32px;height:1px;background:var(--dim2)}
+.eyebrow-text{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--dim)}
+
+h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:800;line-height:1.02;letter-spacing:-3px;color:var(--white);max-width:900px;animation:fadeUp .7s .1s ease both}
+.h1-outline{-webkit-text-stroke:1px var(--white);color:transparent}
+
+.hero-sub{margin-top:28px;font-size:1rem;color:var(--dim);max-width:500px;line-height:1.9;animation:fadeUp .7s .2s ease both;font-weight:300;letter-spacing:.2px}
+
+.hero-actions{display:flex;gap:12px;margin-top:44px;justify-content:center;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--black);padding:16px 36px;border-radius:6px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s;letter-spacing:.2px}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,255,255,.1)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);padding:16px 28px;border-radius:6px;font-weight:500;font-size:.95rem;text-decoration:none;border:1px solid var(--border2);transition:all .2s}
+.btn-ghost:hover{border-color:var(--white);color:var(--white);transform:translateY(-2px)}
+
+/* PAYMENT ROW */
+.payment-row{display:flex;align-items:center;gap:12px;margin-top:28px;justify-content:center;flex-wrap:wrap;animation:fadeUp .7s .4s ease both}
+.payment-label{font-size:.72rem;color:var(--dim2);font-weight:500;letter-spacing:.3px}
+.pay-badge{background:var(--card);border:1px solid var(--border2);border-radius:5px;padding:5px 12px;font-size:.72rem;font-weight:600;color:var(--dim)}
+
+/* STATS BAR */
+.hero-stats{display:flex;margin-top:72px;animation:fadeUp .7s .5s ease both;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{flex:1;padding:24px 32px;text-align:center;position:relative}
+.stat:not(:last-child){border-right:1px solid var(--border)}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--white)}
+.stat-label{font-size:.72rem;color:var(--dim);margin-top:3px;letter-spacing:.5px;text-transform:uppercase}
+
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:13px 0;background:var(--surface)}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:marquee 28s linear infinite}
+.marquee-item{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:600;color:var(--dim2);text-transform:uppercase;letter-spacing:1.5px;white-space:nowrap}
+.marquee-sep{color:var(--border2);font-size:.5rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{position:relative;z-index:1}
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+.section-label{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--dim2);margin-bottom:14px;border-bottom:1px solid var(--border2);padding-bottom:6px}
+h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1.5px;color:var(--white);line-height:1.1}
+
+/* COUNTERS */
+.counter-section{padding:56px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.counter-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.counter-item{text-align:center;padding:28px 20px;position:relative}
+.counter-item:not(:last-child){border-right:1px solid var(--border)}
+.counter-number{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--white);line-height:1}
+.counter-label{font-size:.72rem;color:var(--dim);margin-top:6px;letter-spacing:.5px;text-transform:uppercase}
+.counter-sub{font-size:.68rem;color:var(--dim2);margin-top:4px}
+
+/* PRODUCTS */
+#produits{padding:100px 0}
+.products-header{text-align:center;margin-bottom:64px}
+.products-header p{color:var(--dim);margin-top:14px;font-size:.95rem;max-width:480px;margin-left:auto;margin-right:auto}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+
+.product-card{background:var(--card);padding:0;transition:background .25s;cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.product-card:hover{background:var(--card2)}
+.card-top{padding:28px 28px 20px;flex:1}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
+.card-icon{width:44px;height:44px;border:1px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--surface)}
+.card-badge{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:3px 10px;border-radius:3px}
+.badge-hot{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.2);color:var(--gold)}
+.badge-new{background:rgba(16,245,160,.08);border:1px solid rgba(16,245,160,.15);color:var(--mint)}
+.badge-pro{background:rgba(255,255,255,.06);border:1px solid var(--border2);color:var(--dim)}
+.card-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:-.3px}
+.card-desc{font-size:.82rem;color:var(--dim);line-height:1.7;margin-bottom:18px}
+.card-features{list-style:none;display:flex;flex-direction:column;gap:6px}
+.card-features li{font-size:.78rem;color:var(--text);display:flex;align-items:center;gap:8px}
+.cf-check{width:14px;height:14px;border:1px solid var(--border2);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;color:var(--dim);font-size:.6rem;flex-shrink:0}
+.card-preview{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px}
+.preview-tabs{display:flex;gap:2px;margin-bottom:10px}
+.preview-tab{font-size:.68rem;font-weight:600;padding:4px 10px;border-radius:4px;cursor:pointer;color:var(--dim2);transition:all .15s;border:none;background:transparent;letter-spacing:.3px}
+.preview-tab.active{background:var(--border2);color:var(--white)}
+.preview-content{display:none}
+.preview-content.active{display:block}
+.mini-chart{display:flex;align-items:flex-end;gap:3px;height:44px}
+.mini-bar{border-radius:2px 2px 0 0}
+.mini-bar.w{background:var(--white)}
+.mini-bar.g{background:var(--gold)}
+.mini-bar.m{background:var(--mint)}
+.preview-stat{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border)}
+.preview-stat:last-child{border-bottom:none}
+.ps-label{font-size:.68rem;color:var(--dim2)}
+.ps-val{font-size:.72rem;font-weight:700;color:var(--white)}
+.card-bottom{padding:18px 28px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg)}
+.card-price{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);line-height:1}
+.card-price small{font-size:.65rem;color:var(--dim2);font-weight:400;font-family:'Inter',sans-serif;display:block;margin-top:2px;letter-spacing:.3px}
+.card-buy{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--black);border:none;padding:10px 20px;border-radius:5px;font-weight:700;font-size:.8rem;cursor:pointer;transition:all .2s;letter-spacing:.2px}
+.card-buy:hover{background:var(--accent2);transform:scale(1.02)}
+
+/* PACK CARD */
+.pack-card{grid-column:span 3;background:var(--card);border-top:1px solid var(--border);padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.pack-card:hover{background:var(--card2)}
+.pack-features{display:flex;gap:32px;margin-top:16px;flex-wrap:wrap}
+.pack-feat{font-size:.8rem;color:var(--dim);display:flex;align-items:center;gap:6px}
+.pack-feat::before{content:'—';color:var(--dim2)}
+.pack-right{text-align:right}
+.pack-old-price{font-size:.85rem;color:var(--dim2);text-decoration:line-through;font-family:'Syne',sans-serif;font-weight:600}
+.pack-price{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:var(--white);line-height:1;margin:4px 0}
+.pack-save{font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:.5px}
+
+/* WHY */
+#pourquoi{padding:100px 0;background:var(--surface);border-top:1px solid var(--border)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-visual{border:1px solid var(--border);border-radius:0}
+.why-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.why-header-title{font-size:.75rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px}
+.why-live{display:flex;align-items:center;gap:6px;font-size:.68rem;color:var(--mint)}
+.why-rows{padding:0}
+.why-row{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border);transition:background .15s}
+.why-row:last-child{border-bottom:none}
+.why-row:hover{background:var(--card2)}
+.wr-left{display:flex;align-items:center;gap:14px}
+.wr-icon{font-size:1rem;width:32px;text-align:center}
+.wr-title{font-size:.85rem;font-weight:600;color:var(--white)}
+.wr-sub{font-size:.72rem;color:var(--dim2)}
+.wr-val{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800}
+.wr-val.up{color:var(--mint)}
+.wr-val.gold{color:var(--gold)}
+.wr-val.white{color:var(--white)}
+.why-points{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.why-point{padding:28px 32px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);transition:background .15s}
+.why-point:hover{background:var(--card2)}
+.wp-num{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;color:var(--dim2);letter-spacing:2px;margin-bottom:10px}
+.why-point h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:6px;letter-spacing:-.3px}
+.why-point p{font-size:.8rem;color:var(--dim);line-height:1.7}
+
+/* AVIS */
+#avis{padding:100px 0}
+.avis-header{text-align:center;margin-bottom:56px}
+.avis-header p{color:var(--dim);margin-top:10px;font-size:.9rem}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.avis-card{background:var(--card);padding:28px;transition:background .2s}
+.avis-card:hover{background:var(--card2)}
+.stars{color:var(--gold);font-size:.8rem;letter-spacing:3px;margin-bottom:14px}
+.avis-text{font-size:.85rem;color:var(--text);line-height:1.75;margin-bottom:20px;font-style:italic;font-weight:300}
+.avis-author{display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid var(--border)}
+.avis-avatar{width:34px;height:34px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--white);background:var(--card2);flex-shrink:0}
+.avis-name{font-size:.82rem;font-weight:700;color:var(--white)}
+.avis-meta{font-size:.7rem;color:var(--dim2)}
+.avis-product{font-size:.65rem;font-weight:700;color:var(--dim2);letter-spacing:.5px;text-transform:uppercase;margin-top:2px}
+
+/* CTA */
+.cta-section{padding:120px 0;text-align:center;border-top:1px solid var(--border);position:relative;overflow:hidden}
+.cta-big{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:800;color:var(--white);letter-spacing:-2px;line-height:1.05;margin-bottom:40px}
+.cta-big .outline{-webkit-text-stroke:1px var(--white);color:transparent}
+
+/* FAQ */
+#faq{padding:100px 0;background:var(--surface);border-top:1px solid var(--border)}
+.faq-header{text-align:center;margin-bottom:56px}
+.faq-list{max-width:720px;margin:0 auto;border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;padding:22px 0;text-align:left;color:var(--white);font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;letter-spacing:-.2px;transition:color .2s}
+.faq-q:hover{color:var(--accent2)}
+.faq-arrow{font-size:.85rem;color:var(--dim2);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(45deg);color:var(--white)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:.85rem;color:var(--dim);line-height:1.8;font-weight:300}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:60px 0 32px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo{margin-bottom:12px}
+.footer-brand p{font-size:.8rem;color:var(--dim2);line-height:1.8;max-width:260px;margin-top:10px;font-weight:300}
+.footer-col h4{font-size:.68rem;font-weight:700;color:var(--dim2);letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+.footer-col a{display:block;text-decoration:none;color:var(--dim);font-size:.82rem;margin-bottom:10px;transition:color .2s;font-weight:300}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.72rem;color:var(--dim2)}
+.footer-pay{display:flex;gap:8px}
+.fp-badge{background:var(--card);border:1px solid var(--border2);border-radius:4px;padding:4px 10px;font-size:.68rem;font-weight:600;color:var(--dim2)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--card);border:1px solid var(--border2);padding:40px;width:100%;max-width:460px;position:relative;transform:translateY(16px);transition:transform .25s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--card2);border:1px solid var(--border);color:var(--dim);width:30px;height:30px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:color .2s;border-radius:4px}
+.modal-close:hover{color:var(--white)}
+.modal-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--white);letter-spacing:-.5px;margin-bottom:4px}
+.modal-sub{font-size:.78rem;color:var(--dim);margin-bottom:24px}
+.modal-product{background:var(--surface);border:1px solid var(--border);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.modal-product-name{font-weight:600;color:var(--text);font-size:.85rem}
+.modal-product-price{font-family:'Syne',sans-serif;font-weight:800;color:var(--white);font-size:1.15rem}
+.modal-methods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}
+.pay-method{background:var(--surface);border:1px solid var(--border2);padding:12px;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;transition:all .15s;font-size:.8rem;font-weight:600;color:var(--dim);border-radius:4px}
+.pay-method:hover,.pay-method.selected{border-color:var(--white);color:var(--white);background:var(--card2)}
+.modal-form{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-label{font-size:.68rem;font-weight:700;color:var(--dim2);text-transform:uppercase;letter-spacing:1px}
+.form-input{background:var(--surface);border:1px solid var(--border2);padding:11px 14px;color:var(--white);font-size:.85rem;outline:none;transition:border-color .2s;font-family:'Inter',sans-serif;width:100%;border-radius:4px}
+.form-input:focus{border-color:var(--white)}
+.form-input::placeholder{color:var(--dim2)}
+.modal-total{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:18px}
+.modal-total-label{font-size:.85rem;color:var(--dim)}
+.modal-total-price{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--white)}
+.btn-pay{width:100%;background:var(--white);color:var(--black);border:none;padding:15px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:4px;letter-spacing:.2px}
+.btn-pay:hover{background:var(--accent2);transform:translateY(-1px)}
+.modal-security{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:.68rem;color:var(--dim2);letter-spacing:.3px}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;right:28px;z-index:2000;background:var(--card2);border:1px solid var(--border2);padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 24px 60px rgba(0,0,0,.8);transform:translateY(80px);opacity:0;transition:all .35s;max-width:300px;border-radius:4px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast-icon{font-size:1.1rem}
+.toast-title{font-size:.82rem;font-weight:700;color:var(--white)}
+.toast-sub{font-size:.72rem;color:var(--dim)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  nav ul{display:none}
+  .products-grid{grid-template-columns:1fr}
+  .pack-card{grid-column:span 1;grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .avis-grid{grid-template-columns:1fr}
+  .counter-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{grid-template-columns:1fr}
+  h1{letter-spacing:-1.5px}
+  .hero-stats{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="logo">
+    <div class="logo-mark"><div class="logo-mark-inner"></div></div>
+    FlowSheet Studio
+  </a>
+  <ul>
+    <li><a href="#produits">Produits</a></li>
+    <li><a href="#pourquoi">Pourquoi nous</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#produits" class="nav-cta">Acheter →</a></li>
+  </ul>
+</nav>
+
+<!-- LIVE BANNER -->
+<div class="live-banner">
+  <span class="live-dot"></span>
+  <span id="liveBanner">3 personnes consultent ce site en ce moment</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-eyebrow">
+    <span class="eyebrow-line"></span>
+    <span class="eyebrow-text">Templates Business & Finance Premium</span>
+    <span class="eyebrow-line"></span>
+  </div>
+  <h1>Prends le contrôle<br/>de ton <span class="h1-outline">argent</span><br/>& business</h1>
+  <p class="hero-sub">Google Sheets & templates premium pour entrepreneurs et créateurs qui veulent des résultats concrets — pas juste de beaux fichiers.</p>
+  <div class="hero-actions">
+    <a href="#produits" class="btn-primary">Voir les templates →</a>
+    <a href="#pourquoi" class="btn-ghost">Comment ça marche</a>
+  </div>
+  <div class="payment-row">
+    <span class="payment-label">Paiement :</span>
+    <span class="pay-badge">💳 Carte bancaire</span>
+    <span class="pay-badge">🍎 Apple Pay</span>
+    <span class="pay-badge">🔵 Google Pay</span>
+    <span class="pay-badge">🔒 Stripe</span>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num" id="c1">1247+</div><div class="stat-label">Clients satisfaits</div></div>
+    <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Note moyenne</div></div>
+    <div class="stat"><div class="stat-num">&lt;30s</div><div class="stat-label">Livraison</div></div>
+    <div class="stat"><div class="stat-num">0€</div><div class="stat-label">Abonnement</div></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Budget Tracker Pro<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Side Hustle Tracker<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Pack Freelance Complet<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Dashboard Entrepreneur<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Goal & Money Planner<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Paiement Stripe Sécurisé<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Livraison Instantanée<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Budget Tracker Pro<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Side Hustle Tracker<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Pack Freelance Complet<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Dashboard Entrepreneur<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Goal & Money Planner<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Paiement Stripe Sécurisé<span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Livraison Instantanée<span class="marquee-sep">◆</span></span>
+  </div>
+</div>
+
+<!-- COUNTERS -->
+<div class="counter-section">
+  <div class="container">
+    <div class="counter-grid">
+      <div class="counter-item reveal"><div class="counter-number" data-target="1247" data-suffix="+">0+</div><div class="counter-label">Templates vendus</div><div class="counter-sub">↑ +23 cette semaine</div></div>
+      <div class="counter-item reveal"><div class="counter-number" data-target="98" data-suffix="%">0%</div><div class="counter-label">Satisfaction client</div><div class="counter-sub">Note 4.9 / 5</div></div>
+      <div class="counter-item reveal"><div class="counter-number" data-target="380" data-suffix="€">0€</div><div class="counter-label">Économies moy. / mois</div><div class="counter-sub">Par nos clients</div></div>
+      <div class="counter-item reveal"><div class="counter-number" data-target="30" data-suffix="s">0s</div><div class="counter-label">Délai de livraison</div><div class="counter-sub">Accès immédiat</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="produits">
+  <div class="container">
+    <div class="products-header reveal">
+      <span class="section-label">Nos Templates</span>
+      <h2>Des outils qui changent<br/>vraiment les choses</h2>
+      <p>Chaque template inclut un dashboard visuel automatique. Fonctionnel avant tout.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="card-top">
+          <div class="card-header"><div class="card-icon">💰</div><span class="card-badge badge-hot">Best-seller</span></div>
+          <div class="card-title">Budget Tracker Pro</div>
+          <p class="card-desc">Tableau de bord financier complet. Score mensuel automatique, suivi sur 12 mois, graphiques en temps réel.</p>
+          <ul class="card-features">
+            <li><span class="cf-check">✓</span>Dashboard visuel automatique</li>
+            <li><span class="cf-check">✓</span>Score financier mensuel</li>
+            <li><span class="cf-check">✓</span>Suivi épargne & objectifs</li>
+            <li><span class="cf-check">✓</span>Google Sheets & Excel</li>
+          </ul>
+        </div>
+        <div class="card-preview">
+          <div class="preview-tabs"><button class="preview-tab active" onclick="switchTab(this,'p1a')">Aperçu</button><button class="preview-tab" onclick="switchTab(this,'p1b')">Stats</button></div>
+          <div id="p1a" class="preview-content active"><div class="mini-chart"><div class="mini-bar w" style="width:16px;height:55%"></div><div class="mini-bar w" style="width:16px;height:40%"></div><div class="mini-bar w" style="width:16px;height:70%"></div><div class="mini-bar g" style="width:16px;height:50%"></div><div class="mini-bar w" style="width:16px;height:80%"></div><div class="mini-bar w" style="width:16px;height:62%"></div><div class="mini-bar m" style="width:16px;height:90%"></div></div></div>
+          <div id="p1b" class="preview-content"><div class="preview-stat"><span class="ps-label">Revenus / mois</span><span class="ps-val">+2 400€</span></div><div class="preview-stat"><span class="ps-label">Économies</span><span class="ps-val">+380€</span></div><div class="preview-stat"><span class="ps-label">Score financier</span><span class="ps-val">87/100</span></div></div>
+        </div>
+        <div class="card-bottom"><div class="card-price">12€ <small>téléchargement immédiat</small></div><button class="card-buy" onclick="openModal('Budget Tracker Pro','12')">Acheter →</button></div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="card-top">
+          <div class="card-header"><div class="card-icon">📈</div><span class="card-badge badge-new">Nouveau</span></div>
+          <div class="card-title">Side Hustle Tracker</div>
+          <p class="card-desc">Gère plusieurs sources de revenus. Jauge de liberté financière et plan d'action 90 jours intégrés.</p>
+          <ul class="card-features">
+            <li><span class="cf-check">✓</span>Suivi multi-sources revenus</li>
+            <li><span class="cf-check">✓</span>Jauge liberté financière</li>
+            <li><span class="cf-check">✓</span>Analyse rentabilité / activité</li>
+            <li><span class="cf-check">✓</span>Plan d'action 90 jours</li>
+          </ul>
+        </div>
+        <div class="card-preview">
+          <div class="preview-tabs"><button class="preview-tab active" onclick="switchTab(this,'p2a')">Aperçu</button><button class="preview-tab" onclick="switchTab(this,'p2b')">Stats</button></div>
+          <div id="p2a" class="preview-content active"><div class="mini-chart"><div class="mini-bar m" style="width:16px;height:25%"></div><div class="mini-bar m" style="width:16px;height:40%"></div><div class="mini-bar m" style="width:16px;height:52%"></div><div class="mini-bar m" style="width:16px;height:65%"></div><div class="mini-bar g" style="width:16px;height:75%"></div><div class="mini-bar m" style="width:16px;height:85%"></div><div class="mini-bar m" style="width:16px;height:95%"></div></div></div>
+          <div id="p2b" class="preview-content"><div class="preview-stat"><span class="ps-label">Sources actives</span><span class="ps-val">3 activités</span></div><div class="preview-stat"><span class="ps-label">Revenus side hustle</span><span class="ps-val">+850€/mois</span></div><div class="preview-stat"><span class="ps-label">Liberté financière</span><span class="ps-val">68%</span></div></div>
+        </div>
+        <div class="card-bottom"><div class="card-price">15€ <small>téléchargement immédiat</small></div><button class="card-buy" onclick="openModal('Side Hustle Tracker','15')">Acheter →</button></div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="card-top">
+          <div class="card-header"><div class="card-icon">🧾</div><span class="card-badge badge-pro">Pro</span></div>
+          <div class="card-title">Pack Freelance Complet</div>
+          <p class="card-desc">Factures auto, contrats, CRM clients — tout en un seul fichier pour gérer ton activité freelance.</p>
+          <ul class="card-features">
+            <li><span class="cf-check">✓</span>Générateur de factures auto</li>
+            <li><span class="cf-check">✓</span>Contrat prêt à signer</li>
+            <li><span class="cf-check">✓</span>CRM client intégré</li>
+            <li><span class="cf-check">✓</span>Suivi paiements & relances</li>
+          </ul>
+        </div>
+        <div class="card-preview">
+          <div class="preview-tabs"><button class="preview-tab active" onclick="switchTab(this,'p3a')">Aperçu</button><button class="preview-tab" onclick="switchTab(this,'p3b')">Stats</button></div>
+          <div id="p3a" class="preview-content active"><div class="mini-chart"><div class="mini-bar g" style="width:16px;height:48%"></div><div class="mini-bar w" style="width:16px;height:65%"></div><div class="mini-bar g" style="width:16px;height:55%"></div><div class="mini-bar w" style="width:16px;height:80%"></div><div class="mini-bar g" style="width:16px;height:70%"></div><div class="mini-bar w" style="width:16px;height:88%"></div><div class="mini-bar g" style="width:16px;height:100%"></div></div></div>
+          <div id="p3b" class="preview-content"><div class="preview-stat"><span class="ps-label">Clients gérés</span><span class="ps-val">Illimité</span></div><div class="preview-stat"><span class="ps-label">Temps économisé</span><span class="ps-val">4h / semaine</span></div><div class="preview-stat"><span class="ps-label">Factures auto</span><span class="ps-val">✓ Oui</span></div></div>
+        </div>
+        <div class="card-bottom"><div class="card-price">25€ <small>téléchargement immédiat</small></div><button class="card-buy" onclick="openModal('Pack Freelance Complet','25')">Acheter →</button></div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="card-top">
+          <div class="card-header"><div class="card-icon">📊</div><span class="card-badge badge-pro">Pro</span></div>
+          <div class="card-title">Dashboard Entrepreneur</div>
+          <p class="card-desc">KPIs, CA, marges, dépenses, croissance — tout calculé automatiquement en un coup d'œil.</p>
+          <ul class="card-features">
+            <li><span class="cf-check">✓</span>KPIs en temps réel</li>
+            <li><span class="cf-check">✓</span>Graphiques de croissance auto</li>
+            <li><span class="cf-check">✓</span>Suivi CA & marges</li>
+            <li><span class="cf-check">✓</span>Alertes objectifs intégrées</li>
+          </ul>
+        </div>
+        <div class="card-preview">
+          <div class="preview-tabs"><button class="preview-tab active" onclick="switchTab(this,'p4a')">Aperçu</button><button class="preview-tab" onclick="switchTab(this,'p4b')">Stats</button></div>
+          <div id="p4a" class="preview-content active"><div class="mini-chart"><div class="mini-bar w" style="width:16px;height:38%"></div><div class="mini-bar w" style="width:16px;height:52%"></div><div class="mini-bar m" style="width:16px;height:62%"></div><div class="mini-bar w" style="width:16px;height:70%"></div><div class="mini-bar w" style="width:16px;height:78%"></div><div class="mini-bar m" style="width:16px;height:87%"></div><div class="mini-bar w" style="width:16px;height:95%"></div></div></div>
+          <div id="p4b" class="preview-content"><div class="preview-stat"><span class="ps-label">CA mensuel</span><span class="ps-val">Auto calculé</span></div><div class="preview-stat"><span class="ps-label">Marge brute</span><span class="ps-val">Auto calculée</span></div><div class="preview-stat"><span class="ps-label">Croissance MoM</span><span class="ps-val">+18%</span></div></div>
+        </div>
+        <div class="card-bottom"><div class="card-price">19€ <small>téléchargement immédiat</small></div><button class="card-buy" onclick="openModal('Dashboard Entrepreneur','19')">Acheter →</button></div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="card-top">
+          <div class="card-header"><div class="card-icon">🎯</div><span class="card-badge badge-new">Populaire</span></div>
+          <div class="card-title">Goal & Money Planner</div>
+          <p class="card-desc">Transforme tes objectifs financiers en actions concrètes semaine par semaine. Stop aux vœux pieux.</p>
+          <ul class="card-features">
+            <li><span class="cf-check">✓</span>Vision annuelle & mensuelle</li>
+            <li><span class="cf-check">✓</span>Objectifs → actions concrètes</li>
+            <li><span class="cf-check">✓</span>Weekly review intégrée</li>
+            <li><span class="cf-check">✓</span>Score de progression visuel</li>
+          </ul>
+        </div>
+        <div class="card-preview">
+          <div class="preview-tabs"><button class="preview-tab active" onclick="switchTab(this,'p5a')">Aperçu</button><button class="preview-tab" onclick="switchTab(this,'p5b')">Stats</button></div>
+          <div id="p5a" class="preview-content active"><div class="mini-chart"><div class="mini-bar g" style="width:16px;height:18%"></div><div class="mini-bar g" style="width:16px;height:32%"></div><div class="mini-bar g" style="width:16px;height:48%"></div><div class="mini-bar g" style="width:16px;height:60%"></div><div class="mini-bar g" style="width:16px;height:72%"></div><div class="mini-bar g" style="width:16px;height:84%"></div><div class="mini-bar g" style="width:16px;height:96%"></div></div></div>
+          <div id="p5b" class="preview-content"><div class="preview-stat"><span class="ps-label">Objectifs suivis</span><span class="ps-val">Illimité</span></div><div class="preview-stat"><span class="ps-label">Reviews guidées</span><span class="ps-val">✓ Oui</span></div><div class="preview-stat"><span class="ps-label">Score progression</span><span class="ps-val">Visuel auto</span></div></div>
+        </div>
+        <div class="card-bottom"><div class="card-price">9€ <small>téléchargement immédiat</small></div><button class="card-buy" onclick="openModal('Goal & Money Planner','9')">Acheter →</button></div>
+      </div>
+
+      <!-- EMPTY SLOT -->
+      <div class="product-card reveal" style="align-items:center;justify-content:center;text-align:center;padding:48px 24px;opacity:.5">
+        <div style="font-size:1.5rem;margin-bottom:12px">＋</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--dim);margin-bottom:6px">Nouveautés à venir</div>
+        <div style="font-size:.78rem;color:var(--dim2)">Budget couple · Auto-entrepreneur · Investissement</div>
+      </div>
+
+      <!-- PACK ROW -->
+      <div class="pack-card reveal">
+        <div>
+          <span class="card-badge badge-hot" style="margin-bottom:14px;display:inline-block">Meilleure offre — économise 31€</span>
+          <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-.5px;margin-bottom:8px">Pack Complet — Les 5 templates</div>
+          <p style="font-size:.85rem;color:var(--dim);max-width:500px">Accède à tout l'écosystème FlowSheet Studio en une seule fois. Budget, Side Hustle, Freelance, Entrepreneur, Objectifs.</p>
+          <div class="pack-features">
+            <span class="pack-feat">Budget Tracker Pro</span>
+            <span class="pack-feat">Side Hustle Tracker</span>
+            <span class="pack-feat">Pack Freelance</span>
+            <span class="pack-feat">Dashboard Entrepreneur</span>
+            <span class="pack-feat">Goal & Money Planner</span>
+          </div>
+        </div>
+        <div class="pack-right">
+          <div class="pack-old-price">80€</div>
+          <div class="pack-price">49€</div>
+          <div class="pack-save">↓ ÉCONOMISE 31€</div>
+          <button class="card-buy" style="margin-top:16px;padding:13px 28px;font-size:.9rem" onclick="openModal('Pack Complet (5 templates)','49')">Tout avoir →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="pourquoi">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-visual reveal">
+        <div class="why-header">
+          <span class="why-header-title">Dashboard client type</span>
+          <span class="why-live"><span class="live-dot"></span> Données réelles</span>
+        </div>
+        <div class="why-rows">
+          <div class="why-row"><div class="wr-left"><span class="wr-icon">💰</span><div><div class="wr-title">Épargne ce mois</div><div class="wr-sub">Objectif : 400€</div></div></div><span class="wr-val up">+380€</span></div>
+          <div class="why-row"><div class="wr-left"><span class="wr-icon">📈</span><div><div class="wr-title">Side hustle</div><div class="wr-sub">Revenus cumulés</div></div></div><span class="wr-val white">+850€</span></div>
+          <div class="why-row"><div class="wr-left"><span class="wr-icon">🎯</span><div><div class="wr-title">Liberté financière</div><div class="wr-sub">Progression annuelle</div></div></div><span class="wr-val gold">68%</span></div>
+          <div class="why-row"><div class="wr-left"><span class="wr-icon">⭐</span><div><div class="wr-title">Score financier</div><div class="wr-sub">Ce mois</div></div></div><span class="wr-val gold">87/100</span></div>
+          <div class="why-row"><div class="wr-left"><span class="wr-icon">📊</span><div><div class="wr-title">Croissance CA</div><div class="wr-sub">Mois précédent</div></div></div><span class="wr-val up">+18%</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="section-label">Pourquoi FlowSheet Studio</span>
+        <h2 style="margin-bottom:32px">Pas juste beau.<br/>Vraiment utile.</h2>
+        <div class="why-points">
+          <div class="why-point"><div class="wp-num">01</div><h3>Livraison en 30 secondes</h3><p>Tu paies, tu reçois. Le fichier arrive dans ta boite mail immédiatement, sans compte à créer.</p></div>
+          <div class="why-point"><div class="wp-num">02</div><h3>Dashboards 100% automatiques</h3><p>Nos templates calculent, analysent et affichent des graphiques sans que tu fasses quoi que ce soit.</p></div>
+          <div class="why-point"><div class="wp-num">03</div><h3>Paiement Stripe sécurisé</h3><p>Carte, Apple Pay, Google Pay. Chiffrement SSL. Tes données bancaires ne nous sont jamais transmises.</p></div>
+          <div class="why-point"><div class="wp-num">04</div><h3>Support humain réactif</h3><p>Un problème ? On répond sous 24h. Une vraie personne — pas un bot.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="container">
+    <div class="avis-header reveal">
+      <span class="section-label">Avis Clients</span>
+      <h2>Ils ont transformé<br/>leurs finances</h2>
+      <p>Des centaines de personnes font confiance à FlowSheet Studio.</p>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card reveal"><div class="stars">★★★★★</div><p class="avis-text">"J'avais essayé plein de templates gratuits mais rien n'était aussi complet. Le Budget Tracker Pro est une vraie révélation. Je sais enfin où part mon argent chaque mois."</p><div class="avis-author"><div class="avis-avatar">S</div><div><div class="avis-name">Sarah M.</div><div class="avis-meta">Rotterdam · il y a 2 jours</div><div class="avis-product">Budget Tracker Pro</div></div></div></div>
+      <div class="avis-card reveal"><div class="stars">★★★★★</div><p class="avis-text">"Le Pack Freelance m'a sauvé la vie. Je passais des heures à faire mes factures manuellement. Maintenant c'est 30 secondes. Je recommande à tous les freelances."</p><div class="avis-author"><div class="avis-avatar">T</div><div><div class="avis-name">Thomas K.</div><div class="avis-meta">Paris · il y a 5 jours</div><div class="avis-product">Pack Freelance</div></div></div></div>
+      <div class="avis-card reveal"><div class="stars">★★★★★</div><p class="avis-text">"Qualité incroyable pour ce prix. Le Dashboard Entrepreneur m'a permis d'identifier mes meilleures sources de revenus. CA en hausse de 18% en 2 mois."</p><div class="avis-author"><div class="avis-avatar">A</div><div><div class="avis-name">Aminata D.</div><div class="avis-meta">Lyon · il y a 1 semaine</div><div class="avis-product">Dashboard Entrepreneur</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="container reveal">
+    <p class="section-label" style="display:block;text-align:center;margin-bottom:28px">Prêt à commencer ?</p>
+    <div class="cta-big">Prends le contrôle<br/>de tes <span class="outline">finances</span><br/>aujourd'hui.</div>
+    <a href="#produits" class="btn-primary" style="display:inline-flex;font-size:1rem;padding:18px 44px">Voir tous les templates →</a>
+    <p style="margin-top:20px;font-size:.78rem;color:var(--dim2)">Téléchargement immédiat · Paiement Stripe · Support 24h</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <span class="section-label">FAQ</span>
+      <h2>Questions fréquentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Comment je reçois mon fichier après l'achat ?<span class="faq-arrow">+</span></button><div class="faq-a">Immédiatement. Dès que ton paiement Stripe est validé, tu reçois un email avec le lien de téléchargement direct. Moins de 30 secondes en général.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Faut-il Excel ou peut-on utiliser Google Sheets ?<span class="faq-arrow">+</span></button><div class="faq-a">Les deux fonctionnent. On recommande Google Sheets pour les fonctionnalités automatiques avancées — et c'est gratuit.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Quels moyens de paiement acceptez-vous ?<span class="faq-arrow">+</span></button><div class="faq-a">Via Stripe : carte bancaire (Visa, Mastercard, Amex), Apple Pay et Google Pay. Tout est sécurisé avec chiffrement SSL.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Est-ce que je peux personnaliser les templates ?<span class="faq-arrow">+</span></button><div class="faq-a">Totalement. Couleurs, catégories, objectifs, logo — tu adaptes tout. Les fichiers sont livrés sans protection.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Et si j'ai un problème ?<span class="faq-arrow">+</span></button><div class="faq-a">On répond sous 24h. Contacte-nous par email et une vraie personne te guidera pas à pas. Pas de bot.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo"><div class="logo-mark"><div class="logo-mark-inner"></div></div>FlowSheet Studio</a>
+        <p>Templates Business & Finance premium pour entrepreneurs, freelances et créateurs. Conçus pour être vraiment utiles.</p>
+      </div>
+      <div class="footer-col"><h4>Produits</h4><a href="#produits">Budget Tracker Pro</a><a href="#produits">Side Hustle Tracker</a><a href="#produits">Pack Freelance</a><a href="#produits">Dashboard Entrepreneur</a><a href="#produits">Pack Complet</a></div>
+      <div class="footer-col"><h4>Infos</h4><a href="#faq">FAQ</a><a href="#avis">Avis clients</a><a href="#">Contact</a><a href="#">Mentions légales</a><a href="#">CGV</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 FlowSheet Studio. Tous droits réservés.</div>
+      <div class="footer-pay"><span class="fp-badge">💳 Carte</span><span class="fp-badge">🍎 Apple Pay</span><span class="fp-badge">🔵 Google Pay</span><span class="fp-badge">🔒 Stripe</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="payModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title">Finaliser l'achat</div>
+    <p class="modal-sub">Paiement sécurisé via Stripe · Livraison instantanée</p>
+    <div class="modal-product">
+      <div><div class="modal-product-name" id="modalProductName">Budget Tracker Pro</div><div style="font-size:.7rem;color:var(--mint);margin-top:2px">⚡ Livraison par email en moins de 30s</div></div>
+      <div class="modal-product-price" id="modalProductPrice">12€</div>
+    </div>
+    <div class="modal-methods">
+      <div class="pay-method selected" onclick="selectMethod(this)">💳 Carte bancaire</div>
+      <div class="pay-method" onclick="selectMethod(this)">🍎 Apple Pay</div>
+      <div class="pay-method" onclick="selectMethod(this)">🔵 Google Pay</div>
+      <div class="pay-method" onclick="selectMethod(this)">🏦 Virement</div>
+    </div>
+    <div class="modal-form">
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="ton@email.com"/></div>
+      <div class="form-group"><label class="form-label">Numéro de carte</label><input class="form-input" type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)"/></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Expiration</label><input class="form-input" type="text" placeholder="MM/AA" maxlength="5"/></div>
+        <div class="form-group"><label class="form-label">CVV</label><input class="form-input" type="text" placeholder="123" maxlength="3"/></div>
+      </div>
+    </div>
+    <div class="modal-total"><span class="modal-total-label">Total à payer</span><span class="modal-total-price" id="modalTotalPrice">12€</span></div>
+    <button class="btn-pay" onclick="simulatePay()">🔒 Payer — <span id="modalPayPrice">12€</span></button>
+    <div class="modal-security">🔒 SSL · Stripe · Aucune donnée stockée</div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="toast-icon" id="toastIcon">🛒</span><div><div class="toast-title" id="toastTitle">Achat confirmé</div><div class="toast-sub" id="toastSub">Vérifie ta boite email</div></div></div>
+
+<script>
+// NAV
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50)});
+
+// LIVE BANNER
+const msgs=['3 personnes consultent ce site en ce moment','Karim vient d\'acheter le Budget Tracker Pro','Sarah vient de télécharger son fichier','5 personnes consultent ce site en ce moment','Thomas vient d\'acheter le Pack Freelance'];
+let mi=0;
+setInterval(()=>{mi=(mi+1)%msgs.length;document.getElementById('liveBanner').textContent=msgs[mi]},4500);
+
+// COUNTER
+function animateCounter(el){
+  const target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'',start=performance.now(),dur=1600;
+  function u(now){const p=Math.min((now-start)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(e*target)+suffix;if(p<1)requestAnimationFrame(u)}
+  requestAnimationFrame(u);
+}
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('[data-target]').forEach(c=>animateCounter(c));
+      if(e.target.hasAttribute('data-target'))animateCounter(e.target);
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal,[data-target]').forEach(el=>obs.observe(el));
+
+// TABS
+function switchTab(btn,id){
+  const p=btn.closest('.card-preview');
+  p.querySelectorAll('.preview-tab').forEach(t=>t.classList.remove('active'));
+  p.querySelectorAll('.preview-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+// FAQ
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item'),open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+// MODAL
+let curPrice='';
+function openModal(name,price){
+  curPrice=price;
+  document.getElementById('modalProductName').textContent=name;
+  document.getElementById('modalProductPrice').textContent=price+'€';
+  document.getElementById('modalTotalPrice').textContent=price+'€';
+  document.getElementById('modalPayPrice').textContent=price+'€';
+  document.getElementById('payModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('payModal').classList.remove('open');document.body.style.overflow=''}
+function closeModalOutside(e){if(e.target===document.getElementById('payModal'))closeModal()}
+function selectMethod(el){document.querySelectorAll('.pay-method').forEach(m=>m.classList.remove('selected'));el.classList.add('selected')}
+function formatCard(i){let v=i.value.replace(/\D/g,'').substring(0,16);i.value=v.replace(/(.{4})/g,'$1 ').trim()}
+function simulatePay(){
+  const b=document.querySelector('.btn-pay');b.innerHTML='⏳ Traitement...';b.disabled=true;
+  setTimeout(()=>{closeModal();b.innerHTML='🔒 Payer — '+curPrice+'€';b.disabled=false;showToast('✅','Paiement simulé !','Stripe encaisserait ici en production.')},2000);
+}
+
+// TOAST
+function showToast(icon,title,sub){
+  const t=document.getElementById('toast');
+  document.getElementById('toastIcon').textContent=icon;
+  document.getElementById('toastTitle').textContent=title;
+  document.getElementById('toastSub').textContent=sub;
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4500);
+}
+setTimeout(()=>showToast('🛒','Karim vient d\'acheter','Budget Tracker Pro · il y a 1 min'),7000);
+setTimeout(()=>showToast('⭐','Nouvel avis 5 étoiles','Sarah M. · Budget Tracker Pro'),16000);
+</script>
+</body>
+</html>
